@@ -1,10 +1,14 @@
 package Company;
 
-import Company.Company;
+public class Operationist extends Employees {
 
-public class Operationist extends Company implements Employee {
-    @Override
-    public int getMonthSalary() {
-        return 0;
+    public Operationist (int id, double baseSalary)
+    {
+        this.position = "Operationist";
+        this.monthSalary = Math.random() * baseSalary;
+        this.id = id;
     }
+
+
+
 }

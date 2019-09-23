@@ -1,10 +1,13 @@
 package Company;
 
-import Company.Company;
-
-public class TopManager extends Company implements Employee {
-    @Override
-    public int getMonthSalary() {
-        return 0;
+public class TopManager extends Employees implements Employee {
+    public TopManager (int id, double baseSalary, double income)
+    {
+        this.position = "TopManager";
+        this.baseSalary = Math.random() * baseSalary;
+        this.addPercent = 30;
+        this.monthSalary = income > 10000000 ?  this.baseSalary + (this.baseSalary / 100 * addPercent) : this.baseSalary;
+        this.id = id;
     }
+
 }
