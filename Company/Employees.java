@@ -1,6 +1,6 @@
 package Company;
 
-public class Employees implements Employee, Comparable<Employees>
+public abstract class Employees implements Employee, Comparable<Employees>
 {
     protected double monthSalary;
     protected double baseSalary;
@@ -28,6 +28,6 @@ public class Employees implements Employee, Comparable<Employees>
         if (getMonthSalary() < emp1oyee.getMonthSalary()) {
             return -1;
         }
-            return 0;
+        return 0;
     }
 }

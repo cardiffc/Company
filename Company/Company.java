@@ -1,76 +1,71 @@
 package Company;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class Company {
-    public ArrayList<Employees> empl = new ArrayList<Employees>();
+    public ArrayList<Employees> employees = new ArrayList<Employees>();
     private double income;
     private int employeesCount;
     public Company ()
     {
         this.income = 0;
         this.employeesCount = 0;
-
     }
-
-    public double getIncome ()
+    public double getIncome()
     {
-        return this.income;
+        return income;
     }
-
     public void setNewSalesManager (int count, double baseSalary)
     {
-            for (int i = 0; i < count ; i++) {
+        for (int i = 0; i < count ; i++) {
             employeesCount++;
             double persIncome = Math.random() * 100000;
-            empl.add(new SalesManager(employeesCount, baseSalary, persIncome));
+            employees.add(new SalesManager(employeesCount, baseSalary, persIncome));
             this.income += persIncome;
-            }
+        }
     }
     public void setNewTopManager (int count, double baseSalary)
     {
         for (int i = 0; i < count ; i++) {
 
             employeesCount++;
-            empl.add(new TopManager(employeesCount, baseSalary, this.income));
+            employees.add(new TopManager(employeesCount, baseSalary, this.income));
         }
     }
     public void setNewOperationist (int count, double baseSalary)
     {
         for (int i = 0; i < count; i++) {
             employeesCount++;
-            empl.add(new Operationist(employeesCount, baseSalary));
+            employees.add(new Operationist(employeesCount, baseSalary));
         }
     }
-
     public void removeEmployee (int id) //уволить сотрудника с заданным ID
     {
-        for (int i = 0; i < empl.size() ; i++) {
-            if (empl.get(i).getId() == id)
+        for (int i = 0; i < employees.size() ; i++) {
+            if (employees.get(i).getId() == id)
             {
-                empl.remove(i);
+                employees.remove(i);
             }
-
         }
-
     }
     public void getTopSalaryStaff(int count)
     {
-        System.out.println("=========================================================================================");
+        System.out.println("====================TOP " + count + " SALARY STAFF===================================================");
         for (int i = 1; i <= count ; i++) {
-            int id = empl.size() - i;
-            System.out.println(empl.get(id).getId() + " - " + empl.get(id).getPosition() + " - " + (int) empl.get(id).getMonthSalary());
+            int id = employees.size() - i;
+            System.out.println("ID: " + employees.get(id).getId() + " - " + employees.get(id).getPosition() + " - " + (int) employees.get(id).getMonthSalary());
 
         }
         System.out.println("=========================================================================================");
     }
     public void getLowestSalaryStaff(int count)
     {
+        System.out.println("====================LOWEST " + count + " SALARY STAFF================================================");
         for (int i = 0; i < count ; i++) {
             //int id = empl.size() - i;
-            System.out.println(empl.get(i).getId() + " - " + empl.get(i).getPosition() + " - " + (int) empl.get(i).getMonthSalary());
+            System.out.println("ID: " + employees.get(i).getId() + " - " + employees.get(i).getPosition() + " - " + (int) employees.get(i).getMonthSalary());
 
         }
+        System.out.println("=========================================================================================");
     }
 }
