@@ -30,4 +30,5 @@ public abstract class Employees implements Employee, Comparable<Employees>
         }
         return 0;
     }
+
 }

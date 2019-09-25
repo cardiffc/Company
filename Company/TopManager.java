@@ -6,8 +6,13 @@ public class TopManager extends Employees implements Employee {
         this.position = "TopManager";
         this.baseSalary = Math.random() * baseSalary;
         this.addPercent = 30;
-        this.monthSalary = income > 10000000 ?  this.baseSalary + (this.baseSalary / 100 * addPercent) : this.baseSalary;
+        this.monthSalary = income > 8000000 ?  this.baseSalary + (this.baseSalary / 100 * addPercent) : this.baseSalary;
         this.id = id;
+    }
+
+    @Override
+    public double getPlusIncome() {
+        return 0;
     }
 
 }

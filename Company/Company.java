@@ -3,6 +3,8 @@ package Company;
 import java.util.ArrayList;
 
 public class Company {
+
+
     public ArrayList<Employees> employees = new ArrayList<Employees>();
     private double income;
     private int employeesCount;
@@ -15,13 +17,17 @@ public class Company {
     {
         return income;
     }
-    public void setNewSalesManager (int count, double baseSalary)
+    public void setIncome (double income)
+    {
+        this.income += income;
+    }
+    public void setNewSalesManager (int count, double baseSalary, Company company)
     {
         for (int i = 0; i < count ; i++) {
             employeesCount++;
-            double persIncome = Math.random() * 100000;
-            employees.add(new SalesManager(employeesCount, baseSalary, persIncome));
-            this.income += persIncome;
+         //  double persIncome = Math.random() * 100000;
+            employees.add(new SalesManager(employeesCount, baseSalary, company));
+          //  this.income += persIncome;
         }
     }
     public void setNewTopManager (int count, double baseSalary)
@@ -44,6 +50,10 @@ public class Company {
         for (int i = 0; i < employees.size() ; i++) {
             if (employees.get(i).getId() == id)
             {
+                if (employees.get(i).getPosition().equals("SalesManager"))
+                {
+                    this.income -= employees.get(i).getPlusIncome();
+                }
                 employees.remove(i);
             }
         }

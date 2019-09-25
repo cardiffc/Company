@@ -9,6 +9,8 @@ public class Operationist extends Employees {
         this.id = id;
     }
 
-
-
+    @Override
+    public double getPlusIncome() {
+        return 0;
+    }
 }
